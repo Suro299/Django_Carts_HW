@@ -18,7 +18,7 @@
         {% for i in cart_list %}
           <div>
             <h1> {{ i.prodcut.name }} (Count: {{ i.count }}) </h1>
-            <h2>Price:  ${{ i.prodcut.price }} </h2>
+            <h2>Price:  ${{ i.price }} </h2>
             <img width="300px" src="{{ i.prodcut.img.url }}" alt="">
             
           </div>

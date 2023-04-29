@@ -15,11 +15,17 @@ def index(request):
 
 
         if my_prod.name in cart_list:
+        
             cart_prod = Cart.objects.get(prodcut__name = my_prod.name)   
             cart_prod.count += 1
+            cart_prod.price += cart_prod.price          
             cart_prod.save()
+        
         else:
             Cart.objects.create(prodcut = my_prod)
+            prod = cart_prod = Cart.objects.get(prodcut__name = my_prod.name)   
+            prod.price = my_prod.price
+            prod.save() 
             
         return redirect("index")  
             
