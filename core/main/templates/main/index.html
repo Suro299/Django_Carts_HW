@@ -11,6 +11,15 @@
 </head>
 <body>
   <h1> Shop </h1>
+
+  {% if user.is_authenticated %}
+    <h1><a href="{% url 'logout'%}"> {{user.username}} </a></h1>
+  {% else %}
+    <a href = "{% url 'login' %}" ><button> Login </button> </a>
+    <a href = "{% url 'register' %}" ><button> Register </button> </a>
+  {% endif %}
+
+  <hr>
   <a href = "{% url 'index' %}" ><button> Home </button> </a>
   <a href = "{% url 'cart' %}" ><button> Cart ({{cart_count}}) </button> </a>
   <hr>
